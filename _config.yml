@@ -1,3 +1,5 @@
+encoding: UTF-8
+
 # Where things are
 source              : .
 destination         : ./_site
@@ -12,4 +14,5 @@ collections:
     output          : true
 
 # Outputting
-permalink           : pretty
+permalink           : :title
+future              : true
