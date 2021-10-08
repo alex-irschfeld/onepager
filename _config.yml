@@ -16,3 +16,8 @@ collections:
 # Outputting
 permalink           : :title
 future              : true
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
