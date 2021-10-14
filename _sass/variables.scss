@@ -1,0 +1,34 @@
+:root {
+  --navbar-height: 160px;
+  --main-space: 20px;
+  --main-color: #1a1a1a;
+  --font-size-main: 30px;
+  --font-size-big: 65px;
+  --category-head-height: 100px;
+}
+
+@media screen and (max-width: 1600px) {
+  :root {
+    --navbar-height: 100px;
+    --font-size-main: 24px;
+    --font-size-big: 50px;
+  }
+}
+
+@media screen and (max-width: 1048px) {
+  :root {
+    --navbar-height: 80px;
+    --font-size-main: 20px;
+    --font-size-big: 35px;
+    --category-head-height: 70px;
+  }
+}
+
+@media screen and (max-width: 756px) {
+  :root {
+    --navbar-height: 70px;
+    --font-size-big: 18px;
+    --font-size-main: 18px;
+    --category-head-height: 40px;
+  }
+}

@@ -1,0 +1,49 @@
+.overlay-field
+{
+  display: none;
+  position: relative;
+  width: 70%;
+  height: 75%;
+  background-color: white;
+  position: fixed;
+  top: calc(var(--main-space)*0.5);
+  left: 10%;
+  transform: translate(calc(4% + var(--main-space)), calc(15% + var(--main-space)));
+  box-shadow: 0 0 100vw 100vw rgba(0, 0, 0, .75);
+  z-index: 998;
+  //opacity: 0;
+  transition: opacity .2s;
+  overflowY: scroll;
+}
+
+#cross-wrapper
+{
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  z-index: 999;
+}
+
+#cross-bar-1, #cross-bar-2 
+{
+  width: 80%;
+  height: 12px;
+  background-color: black;
+}
+
+#cross-bar-1
+{
+  transform: rotate(45deg) translateX(5%) translateY(35%);
+}
+
+#cross-bar-2
+{
+  transform: rotate(-45deg) translateX(5%) translateY(-35%);
+}

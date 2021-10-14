@@ -1,0 +1,23 @@
+<template id="cross-template">
+  <div id="cross-wrapper" onclick="closeOverlayField()">
+    <div id="cross-bar-1">
+    </div>
+    <div id="cross-bar-2">
+    </div>
+  </div>
+</template>
+
+<div class="overlay-field" id="about">
+  <p>{{ site.data.about.about }}</p> 
+</div>
+
+<div class="overlay-field" id="contact">
+  <div class="contact-wrapper">
+    <p>{{ site.data.general.title }}</p>
+    <p>{{ site.data.general.street }} {{ site.data.general.number_of_building }} </p>
+    <p>{{ site.data.general.postal_code }} {{ site.data.general.city }} </p>
+    <p>{{ site.data.general.phone }}</p>
+    <p>{{ site.data.general.e_mail }}</p>
+  </div>
+  
+</div>

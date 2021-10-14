@@ -1,13 +1,127 @@
 ---
 ---
 
+@import "variables";
 @import "index";
+@import "typography";
+@import "about_contact";
 
-* {
+*
+{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-h1 {
-  font-size: 200px;
+body
+{
+  position: relative;
+}
+
+a
+{
+  color: var(--main-color);
+  transition: color .2s;
+}
+
+a:hover
+{
+  color: rgb(150, 150, 150);
+}
+
+nav
+{
+  left: 0px;
+  top: 0px;
+  width: 100vw;
+  height: var(--navbar-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(255, 255, 255);
+  border-radius: 0px;
+  border-style: solid;
+  border-width: 0px;
+}
+
+nav #title-wrapper, nav #link-wrapper
+{
+  display: flex;
+}
+
+nav #title-wrapper a
+{
+  margin-left: var(--main-space);
+}
+
+nav #link-wrapper a
+{
+  margin-right: var(--main-space);
+  cursor: pointer;
+}
+
+.sub-nav, .mobile-sub-nav
+{
+  position: fixed;
+  padding-left: var(--main-space);
+  padding-bottom: var(--main-space);
+  height: auto;
+  bottom: -5px;
+  z-index: 2;
+}
+
+.sub-nav a,
+.mobile-sub-nav a,
+.back-to-top a,
+.mobile-back-to-top a
+{
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.back-to-top, 
+.mobile-back-to-top
+{
+  position: fixed;
+  padding-right: var(--main-space);
+  padding-bottom: var(--main-space);
+  height: auto;
+  bottom: -5px;
+  //z-index: 1;
+  right: 0;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.mobile-sub-nav a
+{
+  color: white;
+}
+
+.light
+{
+  position: absolute;
+  top: calc(50% - 20px);
+  left: calc(50% - 20px);
+  width: 0px;
+  height: 0px;
+  border-radius: 50%;
+  background-color: transparent;
+  box-shadow: 1px 0px 120px 120px #00dfff;
+  z-index: 2;
+  mix-blend-mode: soft-light;
+}
+
+.mobile
+{
+  display: none;
+}
+
+@media screen and (max-width: 756px)
+{
+  .mobile
+  {
+    display: block;
+  }
 }

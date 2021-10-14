@@ -1,6 +1,35 @@
 ---
-title: Alex Irschfeld
+title: Malcolm Function
 ---
 
-<h1>Hello World!</h1>
+<section id="section-1">
+  <div id="section-1-left">
+    <div class="intro text">
+      <p>{{ site.data.intro_text.intro_text }}</p>
+    </div>
+  </div>
 
+  <div id="section-1-right">
+    <div class="intro image"></div>
+    <div class="intro mobile-text mobile">
+      <p>{{ site.data.intro_text.intro_text }}</p>
+    </div>
+  </div>
+</section>
+
+{% for item in site.data.sub_navigation %}
+  <section class="content">
+    <div class="category-head" id="{{ item.item }}">
+      <h2>{{ item.item }}</h2>
+    </div>
+    <div class=""></div>
+    <div class="">{{ item.item | last }}</div>
+  </section>
+{% endfor %}
+
+
+
+
+<!-- Sub navigation fixed at bottom left -->
+
+<div class="light"></div>

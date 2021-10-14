@@ -1,0 +1,38 @@
+<nav>
+  <div id="title-wrapper">
+    <a href="index.html"><h1>{{ site.data.general.title }}</h1></a>
+  </div>
+  <div id="link-wrapper">
+  {% for item in site.data.navigation %}
+    <a onclick="showWrapper('{{ item.item }}')"><h2>{{ item.item }}</h2></a>
+  {% endfor %}
+  </div>
+</nav>
+
+<div class="intro sub-nav">
+  {% for item in site.data.sub_navigation %}
+  <a onclick="anchorSlide('{{ item.item }}')">
+    <h2>{{ item.item }}</h2>
+  </a>
+  {% endfor %}
+</div>
+
+<div class="mobile-sub-nav mobile">
+  {% for item in site.data.sub_navigation %}
+  <a href="#{{ item.item }}">
+    <h2>{{ item.item }}</h2>
+  </a>
+  {% endfor %}
+</div>
+
+<div class="back-to-top">
+  <a onclick="backToTop()">
+    <h2>top</h2>
+  </a>
+</div>
+
+<div class="mobile-back-to-top mobile">
+  <a href="#top">
+    <h2>top</h2>
+  </a>
+</div>
