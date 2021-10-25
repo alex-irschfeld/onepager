@@ -2,33 +2,38 @@
 {
   display: none;
   position: relative;
-  width: 70%;
-  height: 75%;
+  width: 100vw;
+  height: 100vh;
   background-color: white;
   position: fixed;
-  top: calc(var(--main-space)*0.5);
-  left: 10%;
-  transform: translate(calc(4% + var(--main-space)), calc(15% + var(--main-space)));
-  box-shadow: 0 0 100vw 100vw rgba(0, 0, 0, .75);
-  z-index: 998;
+  top: 0;
+  left: 0;
+  //transform: translate(calc(4% + var(--main-space)), calc(15% + var(--main-space)));
+  box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.5);
+  z-index: -1;
   //opacity: 0;
-  transition: opacity .2s;
-  overflowY: scroll;
+  transition: all .3s;
+  overflow: scroll;
 }
 
 #cross-wrapper
 {
   width: 100px;
   height: 100px;
-  position: absolute;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   top: 0;
-  right: 0;
+  right: 50%;
   cursor: pointer;
-  z-index: 999;
+  z-index: -1;
+  opacity: 0;
+  background-color: white;
+  border-radius: 50%;
+  margin-top: var(--main-space);
+  transform: translateX(50%);
 }
 
 #cross-bar-1, #cross-bar-2 
@@ -36,6 +41,12 @@
   width: 80%;
   height: 12px;
   background-color: black;
+  transition: background-color .2s;
+}
+
+#cross-wrapper:hover > * 
+{
+  background-color: rgb(150, 150, 150);
 }
 
 #cross-bar-1
@@ -46,4 +57,44 @@
 #cross-bar-2
 {
   transform: rotate(-45deg) translateX(5%) translateY(-35%);
+}
+
+.backdrop-blur
+{
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) 
+{
+  .backdrop-blur
+  {
+    -webkit-backdrop-filter: blur(30px);
+    backdrop-filter: blur(30px);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.contact-wrapper 
+{
+  border-bottom: 1px solid white;
+  padding: calc(var(--main-space) * 10);
+}
+
+#imprint-wrapper
+{
+  column-gap: calc(var(--main-space)*2);
+  column-rule-style: solid;
+  column-rule-width: 1px;
+  column-rule-color: white;
+  column-width: 50vw;
+  width: 50vw;
+  max-height: 200vw;
+  padding: var(--main-space);
+  font-size: 1.325vw;
+  color: white;
+}
+
+#imprint-wrapper h2
+{
+  margin-bottom: var(--main-space);
 }

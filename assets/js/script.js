@@ -6,8 +6,8 @@ let backToTop = () =>
   
   window.scrollTo(
   {
-    top      : topPos,
-    behavior : 'smooth'
+    top     : topPos,
+    behavior: 'smooth'
   });
 }
 
@@ -25,13 +25,22 @@ let anchorSlide = anchor =>
 // Show about and contact field
 let showWrapper = element =>
 {
-  let bodyTag = document.querySelector('body');
+  let bodyTag    = document.querySelector('body');
+  let light      = document.querySelector('.light');
   let divWrapper = document.getElementById(element);
+  let closingBtn = document.getElementById('cross-wrapper');
   
   divWrapper.style.display = 'block';
-  divWrapper.style.opacity = 1;
-  // Disable body scroll
-  bodyTag.style.overflow = 'hidden';
+  bodyTag.style.overflow   = 'hidden'; // Disable body scroll
+  light.style.display      = 'none';
+  // Execute styles after display block for fading in
+  setTimeout( () => 
+  { 
+    divWrapper.style.zIndex  = 998;
+    closingBtn.style.zIndex  = 999;
+    closingBtn.style.opacity = 1;
+    divWrapper.style.opacity = 1;
+  }, 200)
 }
 
 // Clone cross for closing via template in about and contact field
@@ -42,26 +51,52 @@ let addCross = () =>
   let clon2   = temp.content.cloneNode(true); 
   let about   = document.querySelector('#about');
   let contact = document.querySelector('#contact');
-  about.appendChild(clon1);
-  contact.appendChild(clon2);
+  let bodyTag = document.querySelector('body');
+  bodyTag.appendChild(clon1);
+  bodyTag.appendChild(clon2);
 }
 addCross();
 
 // close overlay field by click on cross
 let closeOverlayField = () => 
 {
-  let bodyTag = document.querySelector('body');
+  let light         = document.querySelector('.light');
+  let bodyTag       = document.querySelector('body');
   let overlayFields = document.querySelectorAll('.overlay-field');
+  let closingBtn    = document.getElementById('cross-wrapper');
   
   overlayFields.forEach( field =>
   {
-    field.style.display = 'none';
+    field.style.opacity = 0;
+    field.style.zIndex  = -1;
+    // Execute display 'none' after opacity transition
+    setTimeout( () => 
+    {
+      field.style.display = 'none';
+    }, 200)
   })
   // Enable body scroll
-  bodyTag.style.overflow = 'auto';
-
+  bodyTag.style.overflow   = 'auto';
+  light.style.display      = 'block';
+  closingBtn.style.zIndex  = -1;
+  closingBtn.style.opacity = 0;
 }
 
+// Scale down sub navigation on scroll
+// Scale up when page Y-Offset is 0
+let shrinkSubMenu = () =>
+{
+  let subNav = document.querySelectorAll('.sub-nav a h2');
+  
+  subNav.forEach(element => {
+    if(window.pageYOffset != 0 && window.innerWidth > 756)
+    {
+      element.style.fontSize = 'var(--font-size-big)';
+    } else {
+      element.style.fontSize = 'var(--font-size-huge)';
+    }
+  })
+}
 
 //Follow mouse
 $(document).ready( () => 
@@ -70,8 +105,8 @@ $(document).ready( () =>
   {
     $('.light').css(
     {
-      left : e.pageX,
-      top  : e.pageY
+      left: e.pageX,
+      top : e.pageY
     });
   });
 });

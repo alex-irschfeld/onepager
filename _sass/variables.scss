@@ -1,30 +1,42 @@
-:root {
+:root 
+{
   --navbar-height: 160px;
   --main-space: 20px;
   --main-color: #1a1a1a;
   --font-size-main: 30px;
   --font-size-big: 65px;
+  --font-size-huge: 130px;
   --category-head-height: 100px;
+  //Overlay Blur
+  --ring-shadow: blur(40px);
+  --backdrop-blur: blur(40px);
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0;
+  --ring-offset-shadow: 0 0 #0000;
 }
 
-@media screen and (max-width: 1600px) {
+@media screen and (max-width: 1600px) 
+{
   :root {
     --navbar-height: 100px;
     --font-size-main: 24px;
     --font-size-big: 50px;
+    --font-size-huge: 100px;
   }
 }
 
-@media screen and (max-width: 1048px) {
+@media screen and (max-width: 1048px) 
+{
   :root {
     --navbar-height: 80px;
     --font-size-main: 20px;
     --font-size-big: 35px;
     --category-head-height: 70px;
+    --font-size-huge: 70px;
   }
 }
 
-@media screen and (max-width: 756px) {
+@media screen and (max-width: 756px) 
+{
   :root {
     --navbar-height: 70px;
     --font-size-big: 18px;

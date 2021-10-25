@@ -108,7 +108,7 @@ nav #link-wrapper a
   height: 0px;
   border-radius: 50%;
   background-color: transparent;
-  box-shadow: 1px 0px 120px 120px #00dfff;
+  box-shadow: 1px 0px 120px 120px #ffffff;
   z-index: 2;
   mix-blend-mode: soft-light;
 }
@@ -123,5 +123,10 @@ nav #link-wrapper a
   .mobile
   {
     display: block;
+  }
+
+  .sub-nav
+  {
+    display: none;
   }
 }
